@@ -1,0 +1,6 @@
+@FunTripApi_HostAddress = http://localhost:5025
+
+GET {{FunTripApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
