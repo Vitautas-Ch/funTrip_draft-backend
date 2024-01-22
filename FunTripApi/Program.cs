@@ -5,7 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 //
-ApplicationContext applicationContext = new ApplicationContext();
+using ApplicationContext applicationContext = new ApplicationContext();
+
+applicationContext.Database.EnsureCreated();
+
 applicationContext.Regions.Add(new Regions
 {
     Name = "Name",
@@ -14,6 +17,7 @@ applicationContext.Regions.Add(new Regions
 });
 
 applicationContext.SaveChanges();
+
 //
 
 builder.Services.AddControllers();
