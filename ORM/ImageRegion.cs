@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ORM
 {
-    public class ImageRegions
+    public class ImageRegion
     {
         public long Id { get; set; }
 
         public string? Name { get; set; } //Image
         public string? Description { get; set; } //ImageAlt
 
-        public virtual Regions? Region { get; set; }
+        public virtual Region? Region { get; set; }
 
         //public ImageRegion() { }
     }

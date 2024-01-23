@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ORM
 {
-    public class Places
+    public class Place
     {
         public long Id { get; set; }
 
@@ -22,8 +22,8 @@ namespace ORM
         public string? Description { get; set; }
         public string? AverageBill { get; set; }
 
-        public virtual Cities? City { get; set; }
-        public virtual TypePlaces? TypePlace { get; set; }
-        public virtual ICollection<ImagePlaces>? ImagePlaces { get; set; }
+        public virtual City? City { get; set; }
+        public virtual TypePlace? TypePlace { get; set; }
+        public virtual ICollection<ImagePlace>? ImagePlaces { get; set; }
     }
 }

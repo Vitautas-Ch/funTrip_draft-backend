@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace ORM
 {
-    public class ImagePlaces
+    public class ImagePlace
     {
         public long Id { get; set; }
 
         public string? Name { get; set; } //Image
         public string? Description { get; set; } //ImageAlt
 
-        public virtual Places? Place { get; set; }
+        public virtual Place? Place { get; set; }
     }
 }

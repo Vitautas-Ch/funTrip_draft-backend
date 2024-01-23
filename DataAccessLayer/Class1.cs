@@ -13,7 +13,7 @@ namespace DataAccessLayer
         public Class1()
         {
             Context = new ApplicationContext();
-            Regions? region = Context.Regions.FirstOrDefault(x => x.Name == "Brest region");
+            Region? region = Context.Regions.FirstOrDefault(x => x.Name == "Brest region");
         }
     }
 }

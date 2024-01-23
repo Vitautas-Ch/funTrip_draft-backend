@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ORM
 {
-    public class Regions
+    public class Region
     {
         public long Id { get; set; }
 
@@ -14,7 +14,7 @@ namespace ORM
         public string? MapLink { get; set; }
         public string? Description { get; set; }
 
-        public virtual ICollection<Cities>? Cities { get; set; }
-        public virtual ICollection<ImageRegions>? ImageRegions { get; set; }
+        public virtual ICollection<City>? Cities { get; set; }
+        public virtual ICollection<ImageRegion>? ImageRegions { get; set; }
     }
 }

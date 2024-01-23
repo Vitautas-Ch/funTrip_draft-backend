@@ -9,8 +9,15 @@ namespace ORM
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<Regions> Regions { get; set; }
-        public DbSet<ImageRegions> ImageRegions { get; set; }
+        public DbSet<Region> Regions { get; set; }
+        public DbSet<ImageRegion> ImageRegions { get; set; }
+
+        public DbSet<City> Cities { get; set; }
+        public DbSet<ImageCity> ImageCities { get; set; }
+
+        public DbSet<Place> Places { get; set; }
+        public DbSet<TypePlace> TypePlaces { get; set; }
+        public DbSet<ImageCity> ImagePlaces { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -9,12 +9,21 @@ using ApplicationContext applicationContext = new ApplicationContext();
 
 applicationContext.Database.EnsureCreated();
 
-applicationContext.Regions.Add(new Regions
+applicationContext.Regions.Add(new Region
 {
     Name = "Name",
     MapLink = "MapLink",
     Description = "Description",
 });
+
+/*applicationContext.Cities.Add(new City
+{
+    Name = "Name",
+    MapLink = "MapLink",
+    Latitude = "Latitude",
+    Longitude = "Longitude",
+    Description = "Description",
+});*/
 
 applicationContext.SaveChanges();
 

@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace ORM
 {
-    public class ImageCities
+    public class TypePlace
     {
         public long Id { get; set; }
 
-        public string? Name { get; set; } //Image
-        public string? Description { get; set; } //ImageAlt
+        public string? Type { get; set; }
 
-        public virtual Cities? City { get; set; }
+        public virtual ICollection<Place>? Places { get; set; }
     }
 }
