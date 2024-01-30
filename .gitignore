@@ -262,8 +262,12 @@ ServiceFabricBackup/
 *.rptproj.bak
 
 # SQL Server files
+*.mdf
 *.ldf
 *.ndf
+
+!FunTripApi\bin\Debug\net8.0\mydbfile.mdf
+!FunTripApi\bin\Debug\net8.0\mydbfile_log.ldf
 
 # Business Intelligence projects
 *.rdl.data
