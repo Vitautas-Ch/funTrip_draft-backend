@@ -22,7 +22,7 @@ namespace ORM
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FunTripDb;Trusted_Connection=True;AttachDbFilename=C:\Users\User\source\repos\funTrip_draft\mydbfile.mdf;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FunTripDb;Trusted_Connection=True;AttachDbFilename=|DataDirectory|mydbfile.mdf;");
         }
         //public ApplicationContext() { }
     }
