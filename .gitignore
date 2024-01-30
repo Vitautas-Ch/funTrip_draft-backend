@@ -266,8 +266,8 @@ ServiceFabricBackup/
 *.ldf
 *.ndf
 
-!FunTripApi\bin\Debug\net8.0\mydbfile.mdf
-!FunTripApi\bin\Debug\net8.0\mydbfile_log.ldf
+!\FunTripApi\bin\Debug\net8.0\mydbfile.mdf
+!\FunTripApi\bin\Debug\net8.0\mydbfile_log.ldf
 
 # Business Intelligence projects
 *.rdl.data
