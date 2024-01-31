@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ORM
 {
-    public class ImagePlace
+    public class ImagePlace : IOrm
     {
         public long Id { get; set; }
 

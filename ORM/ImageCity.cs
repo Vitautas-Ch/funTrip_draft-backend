@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ORM
 {
-    public class ImageCity
+    public class ImageCity : IOrm
     {
         public long Id { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ORM
 {
-    public class Place
+    public class Place : IOrm
     {
         public long Id { get; set; }
 

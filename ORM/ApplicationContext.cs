@@ -23,6 +23,7 @@ namespace ORM
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FunTripDb;Trusted_Connection=True;AttachDbFilename=|DataDirectory|mydbfile.mdf;");
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FunTripDb;Trusted_Connection=True;AttachDbFilename=|DataDirectory|\mydbfile.mdf;");
         }
         //public ApplicationContext() { }
     }

@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace ORM
 {
-    public class TypePlace : IOrm
+    public interface IOrm
     {
         public long Id { get; set; }
-
-        public string? Type { get; set; }
-
-        public virtual ICollection<Place>? Places { get; set; }
     }
 }

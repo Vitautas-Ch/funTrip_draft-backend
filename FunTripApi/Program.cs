@@ -1,3 +1,5 @@
+using DataAccessLayer.Interface;
+using DataAccessLayer;
 using ORM;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,16 +7,40 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 //
-using ApplicationContext applicationContext = new ApplicationContext();
-
-applicationContext.Database.EnsureCreated();
-
-applicationContext.Regions.Add(new Region
+using (ApplicationContext applicationContext = new ApplicationContext())
 {
-    Name = "Name",
-    MapLink = "MapLink",
-    Description = "Description",
-});
+    applicationContext.Database.EnsureCreated();
+
+    using (IUnitOfWork unitOfWork = new UnitOfWork(applicationContext))
+    {
+        unitOfWork.RegionRepository.Create(new Region
+        {
+            Name = "Name",
+            MapLink = "MapLink",
+            Description = "Description",
+        });
+
+        unitOfWork.TypePlaceRepository.Create(new TypePlace
+        {
+            Type = "Type",
+        });
+
+        unitOfWork.Save();
+    };
+}
+
+
+
+//using ApplicationContext applicationContext = new ApplicationContext();
+
+//applicationContext.Database.EnsureCreated();
+
+//applicationContext.Regions.Add(new Region
+//{
+//    Name = "Name",
+//    MapLink = "MapLink",
+//    Description = "Description",
+//});
 
 /*applicationContext.Cities.Add(new City
 {
@@ -25,8 +51,14 @@ applicationContext.Regions.Add(new Region
     Description = "Description",
 });*/
 
-applicationContext.SaveChanges();
+//applicationContext.SaveChanges();
 
+
+/*string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+string path = Path.GetDirectoryName(executable);
+AppDomain.CurrentDomain.SetData("DataDirectory", path);*/
+
+AppDomain.CurrentDomain.SetData("DataDirectory", "FunTripApi");
 //
 
 builder.Services.AddControllers();
