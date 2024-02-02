@@ -266,8 +266,8 @@ ServiceFabricBackup/
 *.ldf
 *.ndf
 
-!FunTripApi\App_Data\mydbfile.mdf
-!FunTripApi\App_Data\mydbfile_log.ldf
+!/FunTripApi/App_Data/FunTripDb.mdf
+!/FunTripApi/App_Data/FunTripDb_log.ldf
 
 # Business Intelligence projects
 *.rdl.data
