@@ -19,12 +19,16 @@ namespace ORM
         public DbSet<TypePlace> TypePlaces { get; set; }
         public DbSet<ImageCity> ImagePlaces { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+        //    //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FunTripDb;Trusted_Connection=True;AttachDbFilename=|DataDirectory|mydbfile.mdf;");
+        //    optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FunTripDb;Trusted_Connection=True;AttachDbFilename=|DataDirectory|\mydbfile.mdf;");
+        //}
+        public ApplicationContext(DbContextOptions<ApplicationContext> options)
+            : base(options)
         {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FunTripDb;Trusted_Connection=True;AttachDbFilename=|DataDirectory|mydbfile.mdf;");
-            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FunTripDb;Trusted_Connection=True;AttachDbFilename=|DataDirectory|\mydbfile.mdf;");
+
         }
-        //public ApplicationContext() { }
     }
 }
