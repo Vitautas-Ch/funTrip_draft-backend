@@ -10,7 +10,7 @@ namespace DataAccessLayer.Interface
 {
     public interface IUnitOfWork : IDisposable
     {
-        IGenericRepository<Region> RegionRepository { get; }
+        IRegionRepository RegionRepository { get; }
         IGenericRepository<ImageRegion> ImageRegionRepository { get; }
 
         IGenericRepository<City> CityRepository { get; }
