@@ -2,6 +2,7 @@ using DataAccessLayer.Interface;
 using DataAccessLayer;
 using ORM;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -77,7 +78,7 @@ if (connectionString != null)
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -116,7 +117,7 @@ if (app.Environment.IsDevelopment())
 using IServiceScope scope = app.Services.CreateScope();
 using (ApplicationContext context = scope.ServiceProvider.GetRequiredService<ApplicationContext>())
 {
-context.Database.EnsureCreated();
+    context.Database.EnsureCreated();
 }
 
 app.UseHttpsRedirection();

@@ -9,5 +9,6 @@ namespace DataAccessLayer.Interface.Repository
 {
     public interface ICityRepository : IGenericRepository<City>
     {
+        IEnumerable<City> FilterCitiesByName(Func<City, bool> predicate, bool includeRegions = false);
     }
 }

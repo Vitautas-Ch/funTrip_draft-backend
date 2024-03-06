@@ -23,10 +23,10 @@ namespace DataAccessLayer
         private IRegionRepository? regionRepository;
         private IGenericRepository<ImageRegion>? imageRegionRepository;
 
-        private IGenericRepository<City>? cityRepository;
+        private ICityRepository? cityRepository;
         private IGenericRepository<ImageCity>? imageCityRepository;
 
-        private IGenericRepository<Place>? placeRepository;
+        private IPlaceRepository? placeRepository;
         private IGenericRepository<ImagePlace>? imagePlaceRepository;
         private IGenericRepository<TypePlace>? typePlaceRepository;
 
@@ -46,11 +46,11 @@ namespace DataAccessLayer
                 return imageRegionRepository;
             }
         }
-        public IGenericRepository<City> CityRepository
+        public ICityRepository CityRepository
         {
             get
             {
-                cityRepository ??= new GenericRepository<City>(_context);
+                cityRepository ??= new CityRepository(_context);
                 return cityRepository;
             }
         }
@@ -62,11 +62,11 @@ namespace DataAccessLayer
                 return imageCityRepository;
             }
         }
-        public IGenericRepository<Place> PlaceRepository
+        public IPlaceRepository PlaceRepository
         {
             get
             {
-                placeRepository ??= new GenericRepository<Place>(_context);
+                placeRepository ??= new PlaceRepository(_context);
                 return placeRepository;
             }
         }

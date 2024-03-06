@@ -18,21 +18,21 @@ namespace FunTripApi.Controllers
         }
 
         [HttpGet]
-        [Route("/region")]
+        [Route("region")]
         public IEnumerable<Region> GetRegions()
         {
             return _unitOfWork.RegionRepository.Get();
         }
 
-        //[HttpGet]
-        //[Route("/region-name")]
-        //public IEnumerable<Region> FilterRegionsByName(string name)
-        //{
-        //    IEnumerable<Region> filteredRegions = _unitOfWork.RegionRepository.FilterRegionsByName((region) =>
-        //    {
-        //        return region.Name == region;
-        //    });
-        //    return filteredRegions;
-        //}
+        [HttpGet]
+        [Route("region-name")]
+        public IEnumerable<Region> FilterRegionsByName(long id)
+        {
+            IEnumerable<Region> filteredRegions = _unitOfWork.RegionRepository.FilterRegionsByName((region) =>
+            {
+                return region.Id == id;
+            }, true);
+            return filteredRegions;
+        }
     }
 }

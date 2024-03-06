@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Interface.Repository;
+using DataAccessLayer.Repository;
 using Microsoft.EntityFrameworkCore;
 using ORM;
 using System;
@@ -20,14 +21,14 @@ namespace DataAccessLayer.Repository
             _dbSet = _context.Set<Region>();
         }
 
-        public IEnumerable<Region> FilterRegionsByName(Func<Region, bool> predicate, bool includeCities)
+        public IEnumerable<Region> FilterRegionsByName(Func<Region, bool> predicate, bool includeCities = false)
         {
             IQueryable<Region> result = _dbSet;
             if (includeCities)
             {
                 result = result.Include(x => x.Cities);
             }
-            var filteredRegions = result.Where(predicate);
+            var filteredRegions = result.AsNoTracking().Where(predicate);
             return filteredRegions;
         }
     }

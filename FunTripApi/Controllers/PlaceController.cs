@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Interface;
+﻿using DataAccessLayer;
+using DataAccessLayer.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ORM;
@@ -16,10 +17,21 @@ namespace FunTripApi.Controllers
         }
 
         [HttpGet]
-        [Route("/place")]
+        [Route("place")]
         public IEnumerable<Place> GetPlaces()
         {
             return _unitOfWork.PlaceRepository.Get();
+        }
+
+        [HttpGet]
+        [Route("city-place")]
+        public IEnumerable<Place> FilterPlacesByCity(long id)
+        {
+            IEnumerable<Place> filteredPlaces = _unitOfWork.PlaceRepository.FilterPlacesByCity((place) =>
+            {
+                return place.City?.Id == id;
+            }, true);
+            return filteredPlaces;
         }
     }
 }

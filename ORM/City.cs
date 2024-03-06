@@ -18,5 +18,6 @@ namespace ORM
 
         public virtual Region? Region { get; set; }
         public virtual ICollection<ImageCity>? ImageCities { get; set; }
+        public virtual ICollection<Place>? Places { get; set; }
     }
 }

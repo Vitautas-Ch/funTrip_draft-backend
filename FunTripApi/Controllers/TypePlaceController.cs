@@ -16,7 +16,7 @@ namespace FunTripApi.Controllers
         }
 
         [HttpGet]
-        [Route("/type-place")]
+        [Route("type-place")]
         public IEnumerable<TypePlace> GetTypePlaces()
         {
             return _unitOfWork.TypePlaceRepository.Get();
